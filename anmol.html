@@ -94,6 +94,19 @@
             height: 150px;
             margin: 0 auto;
         }
+
+        .hearts {
+            font-size: 50px;
+            color: #ff1493;
+            display: inline-block;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -102,7 +115,7 @@
         <path id="archPath" d="M50,150 A200,100 0 0,1 450,150" fill="none" stroke="transparent"/>
         <text class="happy-birthday-text">
             <textPath href="#archPath" startOffset="50%" text-anchor="middle">
-                💕 Happy Birthday My Love! 💕
+                <tspan class="hearts">💕💕</tspan> Happy Birthday My Love! <tspan class="hearts">💕💕</tspan>
             </textPath>
         </text>
     </svg>
@@ -114,7 +127,7 @@
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/3.jpeg?raw=true" alt="Birthday Image 3" class="image image3">
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/4.jpeg?raw=true" alt="Birthday Image 4" class="image image4">
 
-    <!-- Audio with Autoplay, Muted to handle restrictions -->
+    <!-- Audio with Autoplay -->
     <audio id="birthdayAudio" src="https://github.com/harlin-taggar/Birthday/raw/main/sound.mp3" preload="auto"></audio>
 
     <script>
