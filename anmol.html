@@ -95,7 +95,6 @@
             margin: 0 auto;
         }
 
-        /* Play button style */
         .play-button {
             background-color: #4682b4;
             color: white;
@@ -114,7 +113,7 @@
         <path id="archPath" d="M50,150 A200,100 0 0,1 450,150" fill="none" stroke="transparent"/>
         <text class="happy-birthday-text">
             <textPath href="#archPath" startOffset="50%" text-anchor="middle">
-                &#x1F495; Happy Birthday My Love! &#x1F495;
+                &#x2764;&#xFE0F; Happy Birthday My Love! &#x2764;&#xFE0F;
             </textPath>
         </text>
     </svg>
@@ -126,7 +125,7 @@
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/3.jpeg?raw=true" alt="Birthday Image 3" class="image image3">
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/4.jpeg?raw=true" alt="Birthday Image 4" class="image image4">
 
-    <!-- Play Button -->
+    <!-- Play Sound Button -->
     <button class="play-button" id="playSoundBtn">Play Sound</button>
 
     <!-- Sound -->
@@ -134,7 +133,9 @@
 
     <script>
         document.getElementById('playSoundBtn').addEventListener('click', function() {
-            document.getElementById('birthdayAudio').play();
+            document.getElementById('birthdayAudio').play().catch(function(error) {
+                console.error("Error playing audio:", error);
+            });
         });
     </script>
 
