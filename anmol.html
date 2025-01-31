@@ -13,6 +13,7 @@
             color: #333;
             padding: 50px;
             overflow-x: hidden;
+            cursor: pointer; /* Indicate clickability */
         }
 
         svg {
@@ -111,7 +112,7 @@
         }
     </style>
 </head>
-<body>
+<body onclick="playAudio()">
 
     <svg width="500" height="200" viewBox="0 0 500 200">
         <path id="archPath" d="M50,150 A200,100 0 0,1 450,150" fill="none" stroke="transparent"/>
@@ -129,19 +130,19 @@
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/3.jpeg?raw=true" alt="Birthday Image 3" class="image image3">
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/4.jpeg?raw=true" alt="Birthday Image 4" class="image image4">
 
-    <!-- Audio with Autoplay -->
-    <audio id="birthdayAudio" src="https://github.com/harlin-taggar/Birthday/raw/main/sound.mp3" preload="auto" autoplay></audio>
-
     <!-- Font Awesome Heart Icons -->
     <div>
         <i class="fas fa-heart heart"></i>
         <i class="fas fa-heart heart"></i>
     </div>
 
+    <audio id="birthdayAudio" src="https://github.com/harlin-taggar/Birthday/raw/main/sound.mp3" preload="auto"></audio>
+
     <script>
-        // Audio starts automatically
-        var audio = document.getElementById('birthdayAudio');
-        audio.play(); // Make sure it plays automatically on page load
+        function playAudio() {
+            var audio = document.getElementById('birthdayAudio');
+            audio.play(); // Play the sound when the page is clicked
+        }
     </script>
 
 </body>
