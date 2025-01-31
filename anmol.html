@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Cursive', sans-serif;
@@ -13,7 +12,7 @@
             color: #333;
             padding: 50px;
             overflow-x: hidden;
-            cursor: pointer; /* Indicate clickability */
+            cursor: pointer;
         }
 
         svg {
@@ -97,10 +96,10 @@
             margin: 0 auto;
         }
 
-        /* Heart animation with Font Awesome */
+        /* Heart animation with pure CSS */
         .heart {
             display: inline-block;
-            font-size: 30px;
+            font-size: 50px;
             color: #ff1493;
             animation: heartbeat 1s infinite;
             margin: 0 10px;
@@ -108,7 +107,21 @@
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Positioning hearts near the text */
+        .hearts {
+            display: inline-block;
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Adjust positioning for hearts */
+        .hearts span {
+            margin: 0 5px;
         }
     </style>
 </head>
@@ -125,16 +138,15 @@
 
     <h2 class="anmol-brar">Anmol Brar</h2>
 
+    <div class="hearts">
+        <span class="heart">&#10084;&#65039;</span>
+        <span class="heart">&#10084;&#65039;</span>
+    </div>
+
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/1.jpeg?raw=true" alt="Birthday Image 1" class="image image1">
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/2.jpeg?raw=true" alt="Birthday Image 2" class="image image2">
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/3.jpeg?raw=true" alt="Birthday Image 3" class="image image3">
     <img src="https://github.com/harlin-taggar/Birthday/blob/main/4.jpeg?raw=true" alt="Birthday Image 4" class="image image4">
-
-    <!-- Font Awesome Heart Icons -->
-    <div>
-        <i class="fas fa-heart heart"></i>
-        <i class="fas fa-heart heart"></i>
-    </div>
 
     <audio id="birthdayAudio" src="https://github.com/harlin-taggar/Birthday/raw/main/sound.mp3" preload="auto"></audio>
 
