@@ -41,27 +41,7 @@
             height: 150px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: fallImage 3s ease-out forwards, bounce 2s infinite ease-in-out 3s;
-        }
-
-        .image1 {
-            left: 10%;
-            animation-delay: 0s, 3s;
-        }
-
-        .image2 {
-            left: 30%;
-            animation-delay: 0.5s, 3.5s;
-        }
-
-        .image3 {
-            left: 50%;
-            animation-delay: 1s, 4s;
-        }
-
-        .image4 {
-            left: 70%;
-            animation-delay: 1.5s, 4.5s;
+            opacity: 0;
         }
 
         @keyframes fallImage {
@@ -87,30 +67,9 @@
                 transform: translateY(-10px);
             }
         }
-
-        .qr-code {
-            margin-top: 30px;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
-        }
-
-        .hearts {
-            font-size: 50px;
-            color: #ff1493;
-            display: inline-block;
-            animation: heartbeat 1s infinite;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
     </style>
 </head>
 <body>
-
     <svg width="500" height="200" viewBox="0 0 500 200">
         <path id="archPath" d="M50,150 A200,100 0 0,1 450,150" fill="none" stroke="transparent"/>
         <text class="happy-birthday-text">
@@ -122,21 +81,38 @@
 
     <h2 class="anmol-brar">Anmol Brar</h2>
 
-    <img src="https://github.com/harlin-taggar/Birthday/blob/main/1.jpeg?raw=true" alt="Birthday Image 1" class="image image1">
-    <img src="https://github.com/harlin-taggar/Birthday/blob/main/2.jpeg?raw=true" alt="Birthday Image 2" class="image image2">
-    <img src="https://github.com/harlin-taggar/Birthday/blob/main/3.jpeg?raw=true" alt="Birthday Image 3" class="image image3">
-    <img src="https://github.com/harlin-taggar/Birthday/blob/main/4.jpeg?raw=true" alt="Birthday Image 4" class="image image4">
+    <img src="https://github.com/harlin-taggar/Birthday/blob/main/1.jpeg?raw=true" alt="Birthday Image 1" class="image" id="image1" style="left: 10%;">
+    <img src="https://github.com/harlin-taggar/Birthday/blob/main/2.jpeg?raw=true" alt="Birthday Image 2" class="image" id="image2" style="left: 30%;">
+    <img src="https://github.com/harlin-taggar/Birthday/blob/main/3.jpeg?raw=true" alt="Birthday Image 3" class="image" id="image3" style="left: 50%;">
+    <img src="https://github.com/harlin-taggar/Birthday/blob/main/4.jpeg?raw=true" alt="Birthday Image 4" class="image" id="image4" style="left: 70%;">
 
     <!-- Audio with Autoplay -->
     <audio id="birthdayAudio" src="https://github.com/harlin-taggar/Birthday/raw/main/sound.mp3" preload="auto"></audio>
 
     <script>
+        // Function to make images fall with delay
+        function dropImage(id, delay) {
+            setTimeout(() => {
+                let img = document.getElementById(id);
+                img.style.animation = "fallImage 3s ease-out forwards, bounce 2s infinite ease-in-out 3s";
+            }, delay);
+        }
+
+        // Distribute drops evenly over 30 seconds
+        let totalDuration = 30000; // 30 seconds
+        let numImages = 4;
+        let interval = totalDuration / numImages;
+
+        dropImage("image1", 0);
+        dropImage("image2", interval);
+        dropImage("image3", interval * 2);
+        dropImage("image4", interval * 3);
+
         // Play audio when user interacts (click anywhere on the page)
         document.body.addEventListener('click', function() {
             var audio = document.getElementById('birthdayAudio');
             audio.play();  // Start playing the audio
         });
     </script>
-
 </body>
 </html>
